@@ -1,0 +1,13 @@
+<p>Programming books lists!</p>
+
+<button (click)="handleClick()" [disabled]="disable" type="button"> {{show ? 'hide book' : 'show book'}} </button>
+
+<input type="text" name="name" [(ngModel)]="username" >
+
+{{username}}
+
+<ul *ngIf="show">
+  <ng-container *ngFor="let book of books; index as i">
+  <app-book (bookEmitter)="addToCart($event)" [book]='book'></app-book>
+  </ng-container>
+</ul>
